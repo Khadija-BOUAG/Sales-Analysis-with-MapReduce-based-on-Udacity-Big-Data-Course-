@@ -2,21 +2,21 @@
 
 To execute these files using Hadoop, you run first the following commands :
 
-1- start hadoop demons
+1. start hadoop demons
 ```
 start-all.sh
 ```
-2- Recover the namenode state
+2. Recover the namenode state
 ```
 hdfs dfsadmin -safemode get
 ```
-3- Create a directory 'udac' and put your input files in the HDFS
+3. Create a directory 'udac' and put your input files in the HDFS
 ```
 hdfs dfs -mkdir /udac
 hdfs dfs -put purcases.txt /udac/
 hdfs dfs -put data.txt /udac/
 ```
-4- launch the hadoop job
+4. launch the hadoop job
 ```
 hadoop jar /usr/local/hadoop/hadoop-*streaming*.jar -file mapperi.py -mapper mapperi.py -file reduceri.py -reducer reduceri.py -input udac/purchases.txt -output /udac/outputi
 ```
@@ -26,6 +26,7 @@ hadoop jar /usr/local/hadoop/hadoop-*streaming*.jar -file mapperi.py -mapper map
 - reducer1.py
 
 **Output :**
+
 ![This is an image](images/1.png)
 
 ## Part 2 : The monetary value for the highest individual sale for each separate store
@@ -33,11 +34,13 @@ hadoop jar /usr/local/hadoop/hadoop-*streaming*.jar -file mapperi.py -mapper map
 - reducer2.py
 
 **Output :**
+
 ![This is an image](images/2.png)
 
 All stores have the same result, to confirm that it is not a problem in the code I executed it on just a part of my dataset, and I got the following output :
 
 **Output :**
+
 ![This is an image](images/2v2.png)
 
 ## Part 3 : The total sales & the total number of sales value across all the stores
@@ -45,4 +48,5 @@ All stores have the same result, to confirm that it is not a problem in the code
 - reducer3.py
 
 **Output :**
-![This is an image](images/2.png)
+
+![This is an image](images/3.png)
